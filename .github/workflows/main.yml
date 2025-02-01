@@ -15,17 +15,15 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install virtualenv
-          python -m virtualenv venv
-          echo "Checking if venv was created..."
-          ls -la
-          ls -la venv
-          echo "Activating virtual environment..."
-          source venv/bin/activate
-          pip install -r requirements.txt
+     - name: Install dependencies
+  run: |
+    python -m pip install --upgrade pip
+    python -m pip install virtualenv
+    python -m virtualenv venv
+    ls -la  # Debugging step to confirm venv is created
+    source venv/bin/activate
+    pip install -r requirements.txt
+
 
       - name: Run Tests
         run: |
