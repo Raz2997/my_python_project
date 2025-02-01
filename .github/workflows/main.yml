@@ -17,10 +17,11 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python -m venv venv
-          echo "VIRTUAL ENVIRONMENT CREATED"
-          ls -la
           python -m pip install --upgrade pip
+          pip install virtualenv
+          python -m virtualenv venv
+          ls -la
+          source venv/bin/activate
           pip install -r requirements.txt
 
       - name: Run Tests
